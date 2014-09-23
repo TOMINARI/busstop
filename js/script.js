@@ -114,26 +114,26 @@ function createMap(){
 	$('div.gmnoprint[title="marker"]').addClass('pulse');
 	
 	// バスを動かす
-	var busMarkerImage1 = new google.maps.MarkerImage(
-			'img/bus1.png', null, null,
-			new google.maps.Point( 8, 8 ),
-			new google.maps.Size( 32, 32 )
-		);
-	var busMarkerImage2 = new google.maps.MarkerImage(
-			'img/bus2.png', null, null,
-			new google.maps.Point( 8, 8 ),
-			new google.maps.Size( 32, 32 )
-		);
-	var busMarkerImage3 = new google.maps.MarkerImage(
-			'img/bus3.png', null, null,
-			new google.maps.Point( 8, 8 ),
-			new google.maps.Size( 32, 32 )
-		);
-	var busMarkerImage4 = new google.maps.MarkerImage(
-			'img/bus1.png', null, null,
-			new google.maps.Point( 8, 8 ),
-			new google.maps.Size( 32, 32 )
-		);
+//	var busMarkerImage1 = new google.maps.MarkerImage(
+//			'img/bus1.png', null, null,
+//			new google.maps.Point( 8, 8 ),
+//			new google.maps.Size( 32, 32 )
+//		);
+//	var busMarkerImage2 = new google.maps.MarkerImage(
+//			'img/bus2.png', null, null,
+//			new google.maps.Point( 8, 8 ),
+//			new google.maps.Size( 32, 32 )
+//		);
+//	var busMarkerImage3 = new google.maps.MarkerImage(
+//			'img/bus3.png', null, null,
+//			new google.maps.Point( 8, 8 ),
+//			new google.maps.Size( 32, 32 )
+//		);
+//	var busMarkerImage4 = new google.maps.MarkerImage(
+//			'img/bus1.png', null, null,
+//			new google.maps.Point( 8, 8 ),
+//			new google.maps.Size( 32, 32 )
+//		);
 /*
 	var busMarker1 = new google.maps.Marker({
 		position: new google.maps.LatLng(homey, homex),
@@ -163,16 +163,40 @@ function createMap(){
 */
 	map.setCenter(new google.maps.LatLng(homey,homex));
 	
-	csvToArray("data/keiro.csv", function(tmp) {
-        for (var i in tmp) {
-            var row = tmp[i];
-            busPosition = new google.maps.LatLng(row[1], row[0]);
-            busPositions1.push(busPosition);
-            busPositions2.push(busPosition);
-            busPositions3.push(busPosition);
-            busPositions4.push(busPosition);
-        }
+	// 2014.09.23 S.Tajuta add start
+	// バス経路の作成
+	csvToArray("data/keiro_list.csv", function(tmp) {
+		// 1行目はタイトル行なので飛ばす
+		tmp.shift();
+		for (var i in tmp) {
+			csv = tmp[i];
+			// 描画フラグがOFF(0)の場合は処理をスキップする
+			if(csv[3] == "0") {
+				continue;
+			}
+			var file_name = "data/keiro/" + csv[0];
+			csvToArray(file_name, function(data, csv) {
+				var keiroPositions = [];
+		        for (var j in data) {
+		            var row = data[j];
+		            keiroPositions.push(new google.maps.LatLng(row[1], row[0]));
+		        }
+		        var strokeColor = csv[2];
+		    	// 経路の描画オプション
+		    	var polyLineOptions = {
+		    		path: keiroPositions,
+		    		strokeWeight: 4,
+		    		strokeColor: strokeColor,
+		    		strokeOpacity: "0.7"
+		    	};
+		    	poly = new google.maps.Polyline(polyLineOptions);
+		    	poly.setMap(map);        				
+			}, csv);
+		}
 	});
+	
+	// 2014.09.23 S.Tajuta add end
+	
 /*
 	console.dir(busPositions1);
 	console.dir(busPositions2);
@@ -185,23 +209,23 @@ function createMap(){
 	setTimeout(moveBus, 15000, new Array(busPositions4, busMarker4));
 */
 	
-	function moveBus(args) {
-		var busPositions = args[0];
-		var busMarker = args[1];
-		console.dir(busPositions);
-		console.dir(busPositions.length);
-		var busPosition = busPositions.shift();
-		console.dir(busPosition);
-		if(busPosition !== undefined) {
-			setTimeout(moveBus, 500, args);			
-		}
-		busMarker.setPosition(busPosition);
-	}
+//	function moveBus(args) {
+//		var busPositions = args[0];
+//		var busMarker = args[1];
+//		console.dir(busPositions);
+//		console.dir(busPositions.length);
+//		var busPosition = busPositions.shift();
+//		console.dir(busPosition);
+//		if(busPosition !== undefined) {
+//			setTimeout(moveBus, 500, args);			
+//		}
+//		busMarker.setPosition(busPosition);
+//	}
 	
 }
 
 
-function csvToArray(filename, cb) {
+function csvToArray(filename, cb, cbParam) {
     $.get(filename, function(csvdata) {
       //CSVのパース
        csvdata = csvdata.replace(/\r/gm, "");
@@ -214,7 +238,7 @@ function csvToArray(filename, cb) {
         var row = line[i].split(",");
         ret.push(row);
       }
-      cb(ret);
+      cb(ret, cbParam);
     });
 }
 
