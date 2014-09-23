@@ -1,0 +1,48 @@
+ファイル名,路線名,色,描画フラグ
+keiro_doyama.csv,市営 土山線,#99FF66,1
+keiro_doyama2.csv,市営 土山線（高窪経由）,#99FF66,1
+keiro_doyama3.csv,市営 土山線（人母経由）,#99FF66,1
+keiro_doyama4.csv,市営 福光・福野循環線、土山線,#99FF66,1
+keiro_fukumitsu_fukuno_loop.csv,市営 福光・福野循環線,#008000,1
+keiro_fukumitsu_fukuno_loop2.csv,市営 福光・福野循環線,#008000,1
+keiro_fukumitsu_fukuno_loop3.csv,市営 福光・福野循環線,#008000,1
+keiro_fukumitsu_fukuno_loop4.csv,市営 福光・福野循環線,#008000,1
+keiro_fukuno_fukumitsu_loop.csv,市営 福光・福野循環線,#008000,1
+keiro_fukuno_fukumitsu_loop2.csv,市営 福光・福野循環線2,#008000,1
+keiro_fukuno_fukumitsu_loop3.csv,市営 福光・福野循環線3,#008000,1
+keiro_fukuno_inami_iguchi_loop.csv,市営 福野・井波・井口循環線,#FF0000,1
+keiro_fukuno_inami_iguchi_loop2.csv,市営 福野・井波・井口循環線2,#FF0000,1
+keiro_higashimawari.csv,市営 東回り線（城端区域）,#FF9933,1
+keiro_inami_fukumitsu.csv,市営 井波・福光線,#FFFF00,1
+keiro_inami_fukumitsu2.csv,市営 井波福光線2,#FFFF00,1
+keiro_johana_higashimawari.csv,市営 城端東回り線（井口方面延長）,#FF9933,1
+keiro_johana_higashimawari2.csv,市営 城端東回り線（井口方面延長）2,#FF9933,1
+keiro_johana_inami.csv,市営 城端井波線,#990099,1
+keiro_jr_kanazawa_fukumitsu.csv,JRバス 金沢＜＞福光,#00aa00,1
+keiro_kaetsunou_gokayama.csv,加越能バス 城端経由・五箇山線,#C31E18,1
+keiro_kaetsunou_kaetsu.csv,加越能バス 加越線,#C31E18,1
+keiro_kaetsunou_shogawamachi.csv,加越能バス 庄川町線,#C31E18,1
+keiro_kaetsunou_tatenowaki.csv,加越能バス 立野脇線,#C31E18,1
+keiro_kaetsunou_tonami.csv,加越能バス 砺波・金沢線,#C31E18,1
+keiro_kaetsunou_tonami2.csv,加越能バス 砺波・金沢線2,#C31E18,1
+keiro_kogurusu.csv,市営 小来栖線,#99CCFF,1
+keiro_momose.csv,市営 百瀬線,#FF9933,1
+keiro_nanto_chuou_hospital.csv,市営 南砺中央病院線（城端区域）,#FF0066,1
+keiro_narude_johana.csv,成出・城端線,#660033,1
+keiro_narude_johana2.csv,市営 成出城端線,#660033,1
+keiro_nishimawari.csv,市営 西回り線（城端区域）,#00FFFF,1
+keiro_ogurusu.csv,小栗栖線,#99CCFF,1
+keiro_shimonashi_inami.csv,市営 下梨・井波線,#660066,1
+keiro_shimonashi_inami2.csv,市営 下梨井波線2,#660066,1
+keiro_soyama_demand.csv,祖山線デマンド区間,#FF66FF,1
+keiro_soyama_shimonashi_inami.csv,市営 祖山線・下梨井波線,#660066,1
+keiro_tamukai.csv,田向線,#CCCC00,1
+keiro_tamukai2.csv,市営 田向線,#CCCC00,1
+keiro_tatsumi2.csv,市営 立美線2,#993300,1
+keiro_tatsumi_loop.csv,市営 立美循環線,#993300,1
+keiro_tatsumi_loop2.csv,市営 立美循環線,#993300,1
+keiro_toga.csv,市営 利賀線,#009900,1
+keiro_toga_shimonashi.csv,市営 利賀下梨線,#CC6600,1
+keiro_toyama_dentetsu.csv,富山電鉄（高速バス）,#0000FF,1
+keiro_yasui_loop.csv,安居循環線,#6666FF,1
+keiro_yasui_loop2.csv,安居循環線2,#6666FF,1
